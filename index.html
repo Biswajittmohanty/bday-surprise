@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 700px;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff66cc;
+      animation: glow 2s infinite alternate;
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+
+    #secretMessage {
+      display: none;
+      margin-top: 1.5rem;
+      font-size: 1.4rem;
+      color: #ffd9ec;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      background-color: #ff66cc;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff3399;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #251f25, 0 0 15px #0d0c0d;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff0048, 0 0 40px #ff6669;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Happy Birthday,Archita! 🎉</h1>
+    <p>You light up every room you're in, and today, I hope your smile shines even brighter.</p>
+    <p>Wishing you a magical year ahead full of laughter, love, and dreams come true.</p>
+    <button onclick="showMessage()">💌 Tap for a Surprise</button>
+    <div id="secretMessage">Nothing secret!😂 Just Be happy and Once Again Happy Birthday Ghost Lover😋💖</div>
+  </div>
+
+  <canvas id="confetti"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    window.onload = () => {
+      confetti({
+        particleCount: 300,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+    };
+
+    function showMessage() {
+      const msg = document.getElementById('secretMessage');
+      msg.style.display = 'block';
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.5 }
+      });
+    }
+  </script>
+</body>
+</html>
